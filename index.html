@@ -69,11 +69,23 @@
       backdrop-filter: blur(6px);
     }
     .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       font-weight: 700;
       font-size: 19px;
       letter-spacing: -0.01em;
       color: var(--ink);
       text-decoration: none;
+    }
+    .brand img {
+      height: 46px;
+      width: auto;
+      display: block;
+    }
+    @media (max-width: 520px) {
+      .brand img { height: 38px; }
+      .brand { font-size: 17px; gap: 9px; }
     }
     nav.top-links {
       display: flex;
@@ -125,8 +137,8 @@
     .dotnav {
       position: fixed;
       left: 24px;
-      top: 50%;
-      transform: translateY(-50%);
+      top: calc(var(--nav-h) + 14px);
+      bottom: 14px;
       z-index: 40;
       display: flex;
       flex-direction: column;
@@ -137,7 +149,11 @@
       border: 1px solid rgba(255, 255, 255, 0.07);
       border-radius: 40px;
       backdrop-filter: blur(8px);
+      overflow-y: auto;
+      scrollbar-width: none;          /* Firefox */
+      -ms-overflow-style: none;       /* IE/Edge */
     }
+    .dotnav::-webkit-scrollbar { display: none; } /* Chrome/Safari */
     .dot {
       width: 40px; height: 40px;
       border-radius: 50%;
@@ -149,6 +165,7 @@
       border: 1px solid rgba(255, 255, 255, 0.09);
       background: rgba(255, 255, 255, 0.02);
       transition: all 0.22s ease;
+      flex-shrink: 0;
     }
     .dot:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
     .dot.active {
@@ -269,13 +286,19 @@
       nav.top-links a:not(.dropdown > a) { display: none; }
       nav.top-links .plain { display: none; }
       .dotnav {
-        left: 50%;
+        left: 12px;
+        right: 12px;
         top: auto;
         bottom: 18px;
-        transform: translateX(-50%);
+        transform: none;
         flex-direction: row;
         border-radius: 40px;
         padding: 8px 12px;
+        max-height: none;
+        max-width: none;
+        overflow-y: visible;
+        overflow-x: auto;
+        justify-content: flex-start;
       }
       .dot { width: 36px; height: 36px; }
     }
@@ -291,7 +314,10 @@
 
   <!-- Top navigation -->
   <header>
-    <a href="#home" class="brand">Krishi Roadmap</a>
+    <a href="#home" class="brand">
+      <img src="UK-logo.png" alt="Govt. of Uttarakhand logo" />
+      Krishi Roadmap
+    </a>
     <nav class="top-links">
       <a href="#home" class="plain">Overview</a>
       <div class="dropdown" id="dropdown">
@@ -315,11 +341,6 @@
     <a href="#home" class="dot active" title="Home">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
     </a>
-    <a href="#home" class="dot">1</a>
-    <a href="#home" class="dot">2</a>
-    <a href="#home" class="dot">3</a>
-    <a href="#home" class="dot">4</a>
-    <a href="#home" class="dot">5</a>
   </div>
 
   <!-- Hero -->
@@ -345,6 +366,16 @@
   </section>
 
   <script>
+    // Build the numbered navigation dots (1–20)
+    const dotnav = document.querySelector('.dotnav');
+    for (let i = 1; i <= 20; i++) {
+      const a = document.createElement('a');
+      a.href = '#home';
+      a.className = 'dot';
+      a.textContent = i;
+      dotnav.appendChild(a);
+    }
+
     // Programme / Roadmap dropdown toggle
     const dropdown = document.getElementById('dropdown');
     dropdown.addEventListener('click', function (e) {
