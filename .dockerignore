@@ -1,0 +1,17 @@
+# Keep the build context tiny and the image clean.
+.git
+.gitattributes
+.gitignore
+README.md
+DOCKER.md
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Editor / OS noise
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+desktop.ini
+.DS_Store

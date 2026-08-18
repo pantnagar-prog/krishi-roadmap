@@ -175,6 +175,17 @@
       box-shadow: 0 0 0 4px rgba(255, 90, 60, 0.18), 0 6px 20px rgba(255, 85, 51, 0.5);
     }
     .dot svg { width: 18px; height: 18px; }
+    /* Numbered dots that don't have a link yet */
+    .dot.pending {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .dot.pending:hover { background: rgba(255, 255, 255, 0.02); color: #c9c6d2; }
+    /* Numbered dots that DO have a link */
+    .dot.linked:hover {
+      border-color: rgba(255, 122, 69, 0.65);
+      box-shadow: 0 0 0 3px rgba(255, 90, 60, 0.14);
+    }
 
     /* ---------- Hero ---------- */
     .hero {
@@ -366,13 +377,63 @@
   </section>
 
   <script>
-    // Build the numbered navigation dots (1–20)
+    /* ==========================================================
+       COMMITTEE LINKS  —  edit this block only
+       ----------------------------------------------------------
+       Paste each committee's Google Drive link between the quotes.
+       Leave a link as "" and that number stays greyed out (no link).
+       ========================================================== */
+    const COMMITTEE_LINKS = {
+      1:  "https://drive.google.com/drive/folders/1Bg8IllbTTLX_kVTPClLi1nTdaL5Mk21o?usp=drive_link",
+      2:  "https://drive.google.com/drive/folders/1bWz7a6ddt633EeVah_Gppthm88o6c4ne?usp=sharing",
+      3:  "",
+      4:  "",
+      5:  "",
+      6:  "",
+      7:  "",
+      8:  "",
+      9:  "",
+      10: "",
+      11: "",
+      12: "",
+      13: "",
+      14: "",
+      15: "",
+      16: "",
+      17: "",
+      18: "",
+      19: "",
+      20: "",
+      21: ""
+    };
+
+    // Optional: one Drive link used for every number that has no link of its own.
+    const DEFAULT_LINK = "";
+
+    // Optional: names shown on hover, e.g. 1: "Horticulture". Blank falls back to "Committee 1".
+    const COMMITTEE_NAMES = {};
+
+    /* ---------- Build the numbered navigation dots (1–21) ---------- */
     const dotnav = document.querySelector('.dotnav');
     for (let i = 1; i <= 21; i++) {
+      const url = (COMMITTEE_LINKS[i] || DEFAULT_LINK || '').trim();
       const a = document.createElement('a');
-      a.href = '#home';
       a.className = 'dot';
       a.textContent = i;
+      a.title = COMMITTEE_NAMES[i] ? (i + '. ' + COMMITTEE_NAMES[i]) : ('Committee ' + i);
+
+      if (url) {
+        a.classList.add('linked');
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      } else {
+        a.classList.add('pending');
+        a.href = '#home';
+        a.setAttribute('aria-disabled', 'true');
+        a.addEventListener('click', function (e) { e.preventDefault(); });
+      }
+
       dotnav.appendChild(a);
     }
 

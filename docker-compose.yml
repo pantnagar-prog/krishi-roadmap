@@ -1,0 +1,27 @@
+services:
+  krishi-roadmap:
+    build:
+      context: .
+    image: krishi-roadmap:latest
+    container_name: krishi-roadmap
+    ports:
+      # host:container — then visit http://localhost:8080
+      - "8080:8080"
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:8080/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+    # --- Optional: live-edit mode -------------------------------------------
+    # Uncomment to mount your working copy over the served files, so saving
+    # index.html and refreshing the browser shows the change with no rebuild.
+    # Comment it back out before building an image to ship.
+    #
+    # volumes:
+    #   - ./index.html:/usr/share/nginx/html/index.html:ro
+    #   - ./UK-logo.png:/usr/share/nginx/html/UK-logo.png:ro
