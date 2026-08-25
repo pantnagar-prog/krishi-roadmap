@@ -24,4 +24,6 @@ services:
     #
     # volumes:
     #   - ./index.html:/usr/share/nginx/html/index.html:ro
+    #   - ./resources.html:/usr/share/nginx/html/resources.html:ro
+    #   - ./contact.html:/usr/share/nginx/html/contact.html:ro
     #   - ./UK-logo.png:/usr/share/nginx/html/UK-logo.png:ro

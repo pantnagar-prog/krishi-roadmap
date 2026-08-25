@@ -30,6 +30,12 @@ machines, and a demo anyone can start in one command.
 
 Docker Desktop (Windows/macOS) or Docker Engine (Linux). Nothing else.
 
+> **Windows PowerShell 5.1 note.** The commands below use `&&` to chain two
+> commands, which Windows PowerShell 5.1 does not understand ("The token '&&'
+> is not a valid statement separator in this version"). Use `;` instead, or run
+> the commands on separate lines. PowerShell 7+ (`pwsh`) and Command Prompt
+> both accept `&&`.
+
 ## Build and run
 
 ```bash

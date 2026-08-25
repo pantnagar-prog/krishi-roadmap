@@ -23,8 +23,10 @@ LABEL org.opencontainers.image.title="Uttarakhand Krishi Roadmap" \
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # The site itself. Files are listed explicitly so nothing stray can sneak in.
-COPY index.html   /usr/share/nginx/html/
-COPY UK-logo.png  /usr/share/nginx/html/
+COPY index.html      /usr/share/nginx/html/
+COPY resources.html  /usr/share/nginx/html/
+COPY contact.html    /usr/share/nginx/html/
+COPY UK-logo.png     /usr/share/nginx/html/
 
 # nginx:alpine ships an unprivileged `nginx` user. Run as it instead of root.
 # The stock image expects root to own the pid file and cache dirs, so hand
