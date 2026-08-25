@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact · Uttarakhand Krishi Roadmap</title>
+  <meta name="description" content="Contact details for the Uttarakhand Krishi Roadmap Preparation team." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0910;
+      --ink: #f3f1f5;
+      --muted: #9a97a6;
+      --accent-1: #ffb37a;
+      --accent-2: #ff7a45;
+      --accent-3: #ff5533;
+      --pill-bg: rgba(255, 255, 255, 0.04);
+      --pill-border: rgba(255, 255, 255, 0.12);
+      --nav-h: 76px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(120% 90% at 12% 6%, rgba(255, 92, 48, 0.55) 0%, rgba(255, 92, 48, 0.0) 42%),
+        radial-gradient(120% 110% at 88% 96%, rgba(40, 58, 138, 0.6) 0%, rgba(40, 58, 138, 0.0) 46%),
+        radial-gradient(140% 120% at 60% 40%, rgba(20, 16, 30, 0.0) 0%, rgba(8, 7, 12, 0.9) 80%),
+        var(--bg);
+    }
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.42;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+
+    /* ---------- Top navbar ---------- */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(20px, 5vw, 64px);
+      z-index: 50;
+      background: linear-gradient(180deg, rgba(10, 8, 14, 0.92) 0%, rgba(10, 8, 14, 0.35) 100%);
+      backdrop-filter: blur(6px);
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .brand img { height: 46px; width: auto; display: block; }
+    @media (max-width: 520px) {
+      .brand img { height: 38px; }
+      .brand { font-size: 17px; gap: 9px; }
+    }
+    nav.top-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2.6vw, 40px);
+    }
+    nav.top-links a {
+      color: #cfccd6;
+      text-decoration: none;
+      font-size: 15.5px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+    nav.top-links a:hover { color: #fff; }
+    nav.top-links a.current { color: #fff; }
+    .dropdown { position: relative; }
+    .dropdown > a { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+    .chev { width: 14px; height: 14px; transition: transform 0.25s ease; }
+    .dropdown.open .chev { transform: rotate(180deg); }
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      min-width: 210px;
+      background: rgba(22, 18, 28, 0.98);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 8px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+    .dropdown.open .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 14px;
+      border-radius: 9px;
+      font-size: 14.5px;
+    }
+    .dropdown-menu a:hover { background: rgba(255, 255, 255, 0.06); }
+
+    /* ---------- Page body ---------- */
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: calc(var(--nav-h) + clamp(48px, 9vw, 110px)) clamp(20px, 5vw, 40px) 80px;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.03);
+      color: #dcd9e2;
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 26px;
+    }
+    h1 {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      font-size: clamp(2.3rem, 6vw, 4rem);
+    }
+    h1 .accent {
+      background: linear-gradient(100deg, var(--accent-1), var(--accent-2) 50%, var(--accent-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .lede {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      line-height: 1.55;
+      max-width: 60ch;
+    }
+    .rule {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: clamp(38px, 6vw, 56px) 0;
+    }
+    .card {
+      background: var(--pill-bg);
+      border: 1px solid var(--pill-border);
+      border-radius: 18px;
+      padding: clamp(24px, 4vw, 34px);
+      backdrop-filter: blur(4px);
+    }
+    .card h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+    .card p { color: var(--muted); line-height: 1.6; font-size: 15.5px; }
+    .card + .card { margin-top: 18px; }
+    .soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #ffb37a;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .soon::before {
+      content: "";
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 35%, var(--accent-1), var(--accent-3));
+      box-shadow: 0 0 0 4px rgba(255, 90, 60, 0.16);
+    }
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: clamp(38px, 6vw, 54px);
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--pill-border);
+      background: var(--pill-bg);
+      color: #e7e5ec;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .back:hover { transform: translateY(-2px); border-color: rgba(255, 122, 69, 0.55); }
+    .back svg { width: 17px; height: 17px; }
+
+    footer {
+      padding: 26px clamp(20px, 5vw, 64px) 34px;
+      color: #6e6a7a;
+      font-size: 13.5px;
+      text-align: center;
+    }
+
+    .reveal { opacity: 0; transform: translateY(18px); animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+    .reveal.d1 { animation-delay: 0.05s; }
+    .reveal.d2 { animation-delay: 0.18s; }
+    .reveal.d3 { animation-delay: 0.30s; }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 860px) {
+      nav.top-links .plain { display: none; }
+      .dropdown-menu {
+        left: auto;
+        right: 0;
+        transform: translateY(-6px);
+        min-width: 172px;
+        max-width: calc(100vw - 24px);
+      }
+      .dropdown.open .dropdown-menu { transform: translateY(0); }
+      .dropdown-menu a { display: block; }
+    }
+    @media (max-width: 520px) {
+      header { padding: 0 16px; }
+      main { padding-left: 16px; padding-right: 16px; }
+      h1 { font-size: clamp(1.85rem, 8.6vw, 2.7rem); }
+      .lede { font-size: 1.02rem; }
+      .card { border-radius: 15px; }
+      .card h2 { font-size: 1.05rem; }
+      .card p { font-size: 15px; }
+    }
+    @media (max-width: 380px) {
+      .brand { font-size: 15px; gap: 8px; }
+      .brand img { height: 32px; }
+      nav.top-links { gap: 12px; }
+      nav.top-links a { font-size: 14.5px; }
+      .eyebrow { font-size: 12.5px; padding: 7px 15px; }
+      .back { font-size: 14px; padding: 11px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="grain"></div>
+
+  <header>
+    <a href="index.html" class="brand">
+      <img src="UK-logo.png" alt="Govt. of Uttarakhand logo" />
+      Krishi Roadmap
+    </a>
+    <nav class="top-links">
+      <a href="index.html" class="plain">Overview</a>
+      <div class="dropdown" id="dropdown">
+        <a>Menu
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="dropdown-menu">
+          <a href="resources.html">Resources</a>
+          <a href="contact.html" class="current">Contact</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <span class="eyebrow reveal d1">Govt. of Uttarakhand</span>
+    <h1 class="reveal d2"><span class="accent">Contact</span> us</h1>
+    <p class="lede reveal d3">How to reach the Krishi Roadmap Preparation team. Contact details are being finalised and will be published on this page shortly.</p>
+
+    <div class="rule"></div>
+
+    <div class="card">
+      <span class="soon">Content coming soon</span>
+      <h2>Office</h2>
+      <p>The office address for the Krishi Roadmap Preparation cell will be added here.</p>
+    </div>
+
+    <div class="card">
+      <span class="soon">Content coming soon</span>
+      <h2>Email &amp; phone</h2>
+      <p>Contact details for the coordination team will be added here.</p>
+    </div>
+
+    <div class="card">
+      <span class="soon">Content coming soon</span>
+      <h2>Committee coordinators</h2>
+      <p>Point of contact for each of the 25 committees will be listed here.</p>
+    </div>
+
+
+    <a href="index.html" class="back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Back to overview
+    </a>
+  </main>
+
+  <footer>Uttarakhand Krishi Roadmap Preparation · Govt. of Uttarakhand</footer>
+
+  <script>
+    const dd = document.getElementById('dropdown');
+    dd.querySelector('a').addEventListener('click', (e) => {
+      e.preventDefault();
+      dd.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!dd.contains(e.target)) dd.classList.remove('open');
+    });
+  </script>
+</body>
+</html>

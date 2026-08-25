@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uttarakhand Krishi Roadmap Preparation · Govt. of Uttarakhand</title>
-  <meta name="description" content="Uttarakhand Krishi Roadmap Preparation — a 20-year agriculture vision across 13 districts, prepared by 21 committees on a 2-month timeline." />
+  <meta name="description" content="Uttarakhand Krishi Roadmap Preparation — a 20-year agriculture vision across 13 districts, prepared by 25 committees on a 3-month timeline." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -292,10 +292,100 @@
     .reveal.d4 { animation-delay: 0.42s; }
     @keyframes rise { to { opacity: 1; transform: translateY(0); } }
 
+    /* ---------- Content sections ---------- */
+    .section {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: clamp(60px, 9vw, 110px) clamp(20px, 5vw, 40px);
+      scroll-margin-top: var(--nav-h);
+      position: relative;
+    }
+    .section + .section { border-top: 1px solid rgba(255, 255, 255, 0.08); }
+    /* Last section fills the viewport so its anchor can scroll right under the navbar */
+    .section:last-of-type { min-height: calc(100vh - var(--nav-h) - 90px); }
+    .section h2 {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      font-size: clamp(1.9rem, 5vw, 3rem);
+    }
+    .section h2 .accent {
+      background: linear-gradient(100deg, var(--accent-1), var(--accent-2) 50%, var(--accent-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section .lede {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      line-height: 1.55;
+      max-width: 60ch;
+    }
+    .cards {
+      margin-top: clamp(28px, 5vw, 44px);
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(238px, 1fr));
+    }
+    .card {
+      background: var(--pill-bg);
+      border: 1px solid var(--pill-border);
+      border-radius: 18px;
+      padding: clamp(22px, 3vw, 30px);
+      backdrop-filter: blur(4px);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover { transform: translateY(-3px); border-color: rgba(255, 122, 69, 0.45); }
+    .card h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+    .card p { color: var(--muted); line-height: 1.6; font-size: 15.5px; }
+    .soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #ffb37a;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .soon::before {
+      content: "";
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 35%, var(--accent-1), var(--accent-3));
+      box-shadow: 0 0 0 4px rgba(255, 90, 60, 0.16);
+    }
+    footer.site {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 26px clamp(20px, 5vw, 64px) 34px;
+      color: #6e6a7a;
+      font-size: 13.5px;
+      text-align: center;
+    }
+
     /* ---------- Responsive ---------- */
     @media (max-width: 860px) {
-      nav.top-links a:not(.dropdown > a) { display: none; }
+      /* Only the standalone top links collapse — the dropdown items stay visible */
       nav.top-links .plain { display: none; }
+
+      /* Anchor the menu to the right edge so it never runs off a narrow screen */
+      .dropdown-menu {
+        left: auto;
+        right: 0;
+        transform: translateY(-6px);
+        min-width: 172px;
+        max-width: calc(100vw - 24px);
+      }
+      .dropdown.open .dropdown-menu { transform: translateY(0); }
+      .dropdown-menu a { display: block; }
+
       .dotnav {
         left: 12px;
         right: 12px;
@@ -310,12 +400,36 @@
         overflow-y: visible;
         overflow-x: auto;
         justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        background: rgba(12, 9, 16, 0.94);
+        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.35);
       }
       .dot { width: 36px; height: 36px; }
+
+      /* Leave room for the bottom dot bar; drop the scroll cue (it collides with it) */
+      .hero { padding-bottom: 120px; }
+      .scroll { display: none; }
+      footer.site { padding-bottom: 105px; }
+      .cards { grid-template-columns: 1fr; }
     }
     @media (max-width: 520px) {
-      .badge { font-size: 13px; padding: 8px 16px; }
+      header { padding: 0 16px; }
+      .badge { font-size: 13px; padding: 8px 16px; margin-bottom: 22px; }
       .pill { font-size: 14px; padding: 11px 18px; }
+      .pills { gap: 10px; margin-top: 28px; }
+      h1.title { font-size: clamp(1.9rem, 9.4vw, 3.1rem); max-width: 100%; }
+      .subtitle { font-size: 1.05rem; max-width: 100%; margin-top: 18px; }
+      .hero { padding-left: 16px; padding-right: 16px; }
+    }
+    @media (max-width: 380px) {
+      .brand { font-size: 15px; gap: 8px; }
+      .brand img { height: 32px; }
+      nav.top-links { gap: 12px; }
+      nav.top-links a { font-size: 14.5px; }
+      .badge { font-size: 12px; padding: 7px 14px; }
+      .pill { font-size: 13px; padding: 10px 15px; }
+      .dot { width: 34px; height: 34px; font-size: 13px; }
+      .dotnav { gap: 8px; padding: 7px 10px; }
     }
   </style>
 </head>
@@ -336,14 +450,12 @@
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </a>
         <div class="dropdown-menu">
-          <a href="#home">Vision &amp; goals</a>
-          <a href="#home">21 committees</a>
-          <a href="#home">13 districts</a>
-          <a href="#home">2-month timeline</a>
+          <a href="resources.html">Resources</a>
+          <a href="contact.html">Contact</a>
         </div>
       </div>
-      <a href="#home" class="plain">How it runs</a>
-      <a href="#home" class="plain">Who runs it</a>
+      <a href="#how-it-runs" class="plain">How it runs</a>
+      <a href="#who-runs-it" class="plain">Who runs it</a>
     </nav>
   </header>
 
@@ -362,10 +474,10 @@
     </h1>
     <p class="subtitle reveal d3">A 20 year pragmatic guide</p>
     <div class="pills reveal d4">
-      <span class="pill">21 committees</span>
+      <span class="pill">25 committees</span>
       <span class="pill">13 districts</span>
       <span class="pill">20-year plan</span>
-      <span class="pill">2-month timeline</span>
+      <span class="pill">3-month timeline</span>
     </div>
 
     <div class="scroll">
@@ -375,6 +487,54 @@
       </div>
     </div>
   </section>
+
+  <!-- How it runs -->
+  <section class="section" id="how-it-runs">
+    <h2><span class="accent">How</span> it runs</h2>
+    <p class="lede">The working method behind the roadmap — how the committees, districts and timeline fit together.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="soon">Content coming soon</span>
+        <h3>25 committees</h3>
+        <p>Each committee prepares its own section of the roadmap. The scope and terms of reference will be described here.</p>
+      </div>
+      <div class="card">
+        <span class="soon">Content coming soon</span>
+        <h3>13 districts</h3>
+        <p>District-level inputs feed into the committee drafts. The consultation process will be described here.</p>
+      </div>
+      <div class="card">
+        <span class="soon">Content coming soon</span>
+        <h3>3-month timeline</h3>
+        <p>Drafts are consolidated into the 20-year roadmap. The stage-by-stage schedule will be published here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who runs it -->
+  <section class="section" id="who-runs-it">
+    <h2><span class="accent">Who</span> runs it</h2>
+    <p class="lede">The people and offices responsible for preparing the roadmap.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="soon">Content coming soon</span>
+        <h3>Leadership</h3>
+        <p>Details of the office guiding the roadmap preparation will be added here.</p>
+      </div>
+      <div class="card">
+        <span class="soon">Content coming soon</span>
+        <h3>Coordination cell</h3>
+        <p>The team coordinating committee work and district inputs will be listed here.</p>
+      </div>
+      <div class="card">
+        <span class="soon">Content coming soon</span>
+        <h3>Committee chairs</h3>
+        <p>Chairs and members of each of the 25 committees will be listed here.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">Uttarakhand Krishi Roadmap Preparation &middot; Govt. of Uttarakhand</footer>
 
   <script>
     /* ==========================================================
@@ -386,25 +546,29 @@
     const COMMITTEE_LINKS = {
       1:  "https://drive.google.com/drive/folders/1Bg8IllbTTLX_kVTPClLi1nTdaL5Mk21o?usp=drive_link",
       2:  "https://drive.google.com/drive/folders/1bWz7a6ddt633EeVah_Gppthm88o6c4ne?usp=sharing",
-      3:  "",
-      4:  "",
-      5:  "",
-      6:  "",
-      7:  "",
-      8:  "",
-      9:  "",
-      10: "",
-      11: "",
-      12: "",
-      13: "",
-      14: "",
-      15: "",
-      16: "",
-      17: "",
-      18: "",
-      19: "",
-      20: "",
-      21: ""
+      3:  "https://drive.google.com/drive/folders/1DNE3eQfIlLR8-Kcz3u5jl64KJ_E1emV8?usp=sharing",
+      4:  "https://drive.google.com/drive/folders/18q4RvpjNrUhFTKXxrguAR529IiHmyjNh?usp=sharing",
+      5:  "https://drive.google.com/drive/folders/12DO0FSkz5--SLEfm7SMXR37pgzmtU9zo?usp=sharing",
+      6:  "https://drive.google.com/drive/folders/1HkPscws_dnmPQLeAytKzqH_RXw2VWPNZ?usp=sharing",
+      7:  "https://drive.google.com/drive/folders/1EtocoX1BzCH1sdMXXQFdXg2Dvd9ee-3Q?usp=sharing",
+      8:  "https://drive.google.com/drive/folders/13KbQoHYHNv9nJxNDhrgJrDP7t2gVis4V?usp=sharing",
+      9:  "https://drive.google.com/drive/folders/10KblacMIwjZlJ9x08P3cwE9nXNFBviNC?usp=sharing",
+      10: "https://drive.google.com/drive/folders/1xBswCJRTRwhL7qX8TGelLQzMHjeECCnZ?usp=sharing",
+      11: "https://drive.google.com/drive/folders/18qMsW7V4vdMlWsRJ7Who80OKZCeHIOBN?usp=sharing",
+      12: "https://drive.google.com/drive/folders/1lqu5YvssHnyDcgMc-HOlxmzsQR8GKwDv?usp=sharing",
+      13: "https://drive.google.com/drive/folders/1wRcRaA7n3p77NCVFj13yEkq17Nh7QAH6?usp=sharing",
+      14: "https://drive.google.com/drive/folders/1N4eU2ycSgr0J19ZSY5-09FuIB-gUGEId?usp=sharing",
+      15: "https://drive.google.com/drive/folders/1iRVAGje4xw66ww1S5mojRdRX01qC1UdU?usp=sharing",
+      16: "https://drive.google.com/drive/folders/1yxoVoevfnzY6873_bDxNsIngNFLsIQnP?usp=sharing",
+      17: "https://drive.google.com/drive/folders/1iLdidMNZYYzjkttWdPVUD_Cu-mHsZHEE?usp=sharing",
+      18: "https://drive.google.com/drive/folders/1MlTZ95Khx77aIjmEeKGuVAg4EifTM4RS?usp=sharing",
+      19: "https://drive.google.com/drive/folders/1v8QQPU9HBwkQtBNA9PpGVncAc4sGG8m7?usp=sharing",
+      20: "https://drive.google.com/drive/folders/1Kdq1vCFZP4b0AqYMOZ9zbUX_r-Tf4X1x?usp=sharing",
+      21: "https://drive.google.com/drive/folders/186R8S1KNr1d39snEy3B_r37Ja-cZHuAi?usp=sharing",
+      22: "https://drive.google.com/drive/folders/1U7BLmr0kirPDrluX_KsB0R4ugMFx4TW0?usp=sharing",
+      23: "https://drive.google.com/drive/folders/11RVNj5Hrdk2LbX-EqPWV_AlaTLl3EF1Q?usp=sharing",
+      24: "https://drive.google.com/drive/folders/1758C3lVl2pUALTFLBt9fEjBJEnSV9w6I?usp=sharing",
+      25: "https://drive.google.com/drive/folders/1Etj0nuvhmQ4YluSSDOPpqDDFy-EE0Y3x?usp=sharing"
     };
 
     // Optional: one Drive link used for every number that has no link of its own.
@@ -413,9 +577,9 @@
     // Optional: names shown on hover, e.g. 1: "Horticulture". Blank falls back to "Committee 1".
     const COMMITTEE_NAMES = {};
 
-    /* ---------- Build the numbered navigation dots (1–21) ---------- */
+    /* ---------- Build the numbered navigation dots (1–25) ---------- */
     const dotnav = document.querySelector('.dotnav');
-    for (let i = 1; i <= 21; i++) {
+    for (let i = 1; i <= 25; i++) {
       const url = (COMMITTEE_LINKS[i] || DEFAULT_LINK || '').trim();
       const a = document.createElement('a');
       a.className = 'dot';
@@ -447,9 +611,9 @@
       dropdown.classList.remove('open');
     });
 
-    // Scroll arrow — nudge down a viewport
+    // Scroll arrow — jump to the first content section
     document.getElementById('scrollBtn').addEventListener('click', function () {
-      window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+      document.getElementById('how-it-runs').scrollIntoView({ behavior: 'smooth' });
     });
   </script>
 </body>
