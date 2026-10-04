@@ -214,6 +214,18 @@
       border-color: rgba(255, 122, 69, 0.55);
       background: rgba(255, 255, 255, 0.06);
     }
+    ul.filelist.featured a {
+      padding: 20px 22px;
+      border-color: rgba(255, 122, 69, 0.42);
+      background: linear-gradient(100deg, rgba(255, 122, 69, 0.13), rgba(255, 255, 255, 0.04));
+    }
+    ul.filelist.featured .fname { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+    ul.filelist.featured svg.dl { color: var(--accent-1); width: 19px; height: 19px; }
+    @media (max-width: 460px) {
+      ul.filelist.featured a { padding: 16px 15px; }
+      ul.filelist.featured .fname { font-size: 15.5px; }
+    }
+
     ul.filelist a:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
     .fname { font-weight: 600; font-size: 15.5px; }
     .fmeta {
@@ -359,6 +371,14 @@
     <span class="eyebrow reveal d1">Govt. of Uttarakhand</span>
     <h1 class="reveal d2"><span class="accent">Resources</span></h1>
     <p class="lede reveal d3">Documents, data and reference material for the Uttarakhand Krishi Roadmap Preparation. More material is added here as it is finalised.</p>
+
+    <div class="rule"></div>
+
+    <h2 class="sec">Roadmap draft template</h2>
+    <p class="secnote">The standard format committees use to prepare their section of the roadmap.</p>
+    <ul class="filelist featured">
+      <li><a href="pdfs/roadmap-draft-template.pdf" target="_blank" rel="noopener"><span class="fname">Uttarakhand Krishi Roadmap Template</span><span class="fmeta">PDF &middot; 349 KB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+    </ul>
 
     <div class="rule"></div>
 
