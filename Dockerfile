@@ -28,6 +28,9 @@ COPY resources.html  /usr/share/nginx/html/
 COPY contact.html    /usr/share/nginx/html/
 COPY UK-logo.png     /usr/share/nginx/html/
 
+# Published PDFs linked from the Resources page.
+COPY pdfs/           /usr/share/nginx/html/pdfs/
+
 # nginx:alpine ships an unprivileged `nginx` user. Run as it instead of root.
 # The stock image expects root to own the pid file and cache dirs, so hand
 # those over first. (This is also why the config listens on 8080, not 80 —

@@ -166,6 +166,72 @@
       line-height: 1.55;
       max-width: 60ch;
     }
+    h2.sec {
+      font-size: clamp(1.45rem, 3.4vw, 1.9rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .secnote {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.55;
+      max-width: 60ch;
+    }
+    h3.grp {
+      margin-top: clamp(30px, 5vw, 42px);
+      margin-bottom: 14px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    h3.grp .count {
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--muted);
+      text-transform: none;
+    }
+    ul.filelist { list-style: none; display: grid; gap: 8px; }
+    ul.filelist a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border-radius: 13px;
+      background: var(--pill-bg);
+      border: 1px solid var(--pill-border);
+      color: var(--ink);
+      text-decoration: none;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+    ul.filelist a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 122, 69, 0.55);
+      background: rgba(255, 255, 255, 0.06);
+    }
+    ul.filelist a:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+    .fname { font-weight: 600; font-size: 15.5px; }
+    .fmeta {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    svg.dl { width: 17px; height: 17px; color: var(--muted); flex-shrink: 0; }
+    ul.filelist a:hover svg.dl { color: var(--accent-1); }
+    @media (max-width: 460px) {
+      ul.filelist a { gap: 10px; padding: 13px 15px; }
+      .fname { font-size: 15px; }
+      .fmeta { font-size: 11.5px; letter-spacing: 0.02em; }
+    }
+
     .rule {
       height: 1px;
       background: rgba(255, 255, 255, 0.1);
@@ -292,15 +358,40 @@
   <main>
     <span class="eyebrow reveal d1">Govt. of Uttarakhand</span>
     <h1 class="reveal d2"><span class="accent">Resources</span></h1>
-    <p class="lede reveal d3">Documents, templates and reference material for the Uttarakhand Krishi Roadmap Preparation. This page is being prepared &mdash; material will be added here shortly.</p>
+    <p class="lede reveal d3">Documents, data and reference material for the Uttarakhand Krishi Roadmap Preparation. More material is added here as it is finalised.</p>
 
     <div class="rule"></div>
 
-    <div class="card">
-      <span class="soon">Content coming soon</span>
-      <h2>Documents &amp; reports</h2>
-      <p>Committee reports, district submissions and background papers will be listed here as they are finalised.</p>
-    </div>
+    <h2 class="sec">Statistics &amp; reports</h2>
+    <p class="secnote">Year-wise PDF reports. Each one opens in a new tab &mdash; use your browser's download button to save a copy.</p>
+
+    <h3 class="grp">A.P. district-wise <span class="count">17 reports &middot; 2002&ndash;03 to 2019&ndash;20</span></h3>
+    <ul class="filelist">
+      <li><a href="pdfs/ap-districtwise-2019-20.pdf" target="_blank" rel="noopener"><span class="fname">2019–20</span><span class="fmeta">PDF &middot; 2.2 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2018-19.pdf" target="_blank" rel="noopener"><span class="fname">2018–19</span><span class="fmeta">PDF &middot; 1.7 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2017-18.pdf" target="_blank" rel="noopener"><span class="fname">2017–18</span><span class="fmeta">PDF &middot; 2.7 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2016-17.pdf" target="_blank" rel="noopener"><span class="fname">2016–17</span><span class="fmeta">PDF &middot; 4.1 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2015-16.pdf" target="_blank" rel="noopener"><span class="fname">2015–16</span><span class="fmeta">PDF &middot; 1.7 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2014-15.pdf" target="_blank" rel="noopener"><span class="fname">2014–15</span><span class="fmeta">PDF &middot; 1.3 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2013-14.pdf" target="_blank" rel="noopener"><span class="fname">2013–14</span><span class="fmeta">PDF &middot; 1.4 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2012-13.pdf" target="_blank" rel="noopener"><span class="fname">2012–13</span><span class="fmeta">PDF &middot; 5.9 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2010-11.pdf" target="_blank" rel="noopener"><span class="fname">2010–11</span><span class="fmeta">PDF &middot; 1.3 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2009-10.pdf" target="_blank" rel="noopener"><span class="fname">2009–10</span><span class="fmeta">PDF &middot; 3.2 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2008-09.pdf" target="_blank" rel="noopener"><span class="fname">2008–09</span><span class="fmeta">PDF &middot; 2.6 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2007-08.pdf" target="_blank" rel="noopener"><span class="fname">2007–08</span><span class="fmeta">PDF &middot; 3.7 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2006-07.pdf" target="_blank" rel="noopener"><span class="fname">2006–07</span><span class="fmeta">PDF &middot; 4.0 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2005-06.pdf" target="_blank" rel="noopener"><span class="fname">2005–06</span><span class="fmeta">PDF &middot; 3.5 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2004-05.pdf" target="_blank" rel="noopener"><span class="fname">2004–05</span><span class="fmeta">PDF &middot; 0.8 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2003-04.pdf" target="_blank" rel="noopener"><span class="fname">2003–04</span><span class="fmeta">PDF &middot; 2.7 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+      <li><a href="pdfs/ap-districtwise-2002-03.pdf" target="_blank" rel="noopener"><span class="fname">2002–03</span><span class="fmeta">PDF &middot; 4.8 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+    </ul>
+
+    <h3 class="grp">Horticulture <span class="count">1 report</span></h3>
+    <ul class="filelist">
+      <li><a href="pdfs/horticulture-crops-2023-24.pdf" target="_blank" rel="noopener"><span class="fname">Horticulture crops 2023–24</span><span class="fmeta">PDF &middot; 4.9 MB</span><svg class="dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></a></li>
+    </ul>
+
+    <div class="rule"></div>
 
     <div class="card">
       <span class="soon">Content coming soon</span>
